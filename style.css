@@ -1,0 +1,214 @@
+/* ===== Base y tema ===== */
+:root{
+  --gap: 8px;
+  --radius: 12px;
+
+  /* Colores por categoría */
+  --no-metal: #9be7ff;
+  --halogeno: #ffd6a5;
+  --gas-noble: #caffbf;
+  --alcalino: #ffadad;
+  --alcalinoterreo: #ffd6e7;
+  --metal-transicion: #c7d2fe;
+  --metaloide: #fbcfe8;
+  --otros-metales: #e9d5ff;
+  --lantanido: #fde68a;
+  --actinido: #fecaca;
+
+  /* Estética */
+  --fg: #0f172a;
+  --muted: #475569;
+  --line: #e2e8f0;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: #f8fafc;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+}
+main { padding: clamp(16px, 3vw, 40px); }
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  padding: 6px 0 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ===== Tabla ===== */
+.tabla-periodica {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: var(--gap);
+  table-layout: fixed; /* 18 columnas fijas */
+  background: transparent;
+}
+.tabla-periodica td {
+  width: calc((100% - (17 * var(--gap))) / 18);
+  vertical-align: middle;
+}
+
+/* Celdas de elemento */
+.elemento {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 10px 8px;
+  text-align: center;
+  position: relative;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background-color .12s ease, color .12s ease;
+  cursor: pointer;
+}
+
+/* Semántica interna */
+.elemento .num {
+  position: absolute;
+  top: 6px; left: 8px;
+  font-size: 0.70rem;
+  color: var(--muted);
+}
+.elemento .simbolo {
+  display: block;
+  font-size: clamp(1rem, 2.6vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.elemento .nombre {
+  display: block;
+  font-size: clamp(0.68rem, 1.2vw, 0.85rem);
+  color: #1f2937;
+  margin-top: 2px;
+}
+
+/* Hover sutil */
+.elemento:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(2,6,23,.15);
+  border-color: rgba(2,6,23,.25);
+}
+
+/* Celdas vacías o separadores */
+.vacio {
+  border: none;
+  background: transparent;
+}
+.placeholder-f{
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding: 6px 4px;
+  background: #fff;
+}
+.placeholder-f span{
+  display:block;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+/* ===== Colores por categoría ===== */
+.elemento.no-metal        { background: color-mix(in oklab, white 60%, var(--no-metal)); }
+.elemento.halogeno        { background: color-mix(in oklab, white 60%, var(--halogeno)); }
+.elemento.gas-noble       { background: color-mix(in oklab, white 60%, var(--gas-noble)); }
+.elemento.alcalino        { background: color-mix(in oklab, white 60%, var(--alcalino)); }
+.elemento.alcalinoterreo  { background: color-mix(in oklab, white 60%, var(--alcalinoterreo)); }
+.elemento.metal-transicion{ background: color-mix(in oklab, white 60%, var(--metal-transicion)); }
+.elemento.metaloide       { background: color-mix(in oklab, white 60%, var(--metaloide)); }
+.elemento.otros-metales   { background: color-mix(in oklab, white 60%, var(--otros-metales)); }
+.elemento.lantanido       { background: color-mix(in oklab, white 60%, var(--lantanido)); }
+.elemento.actinido        { background: color-mix(in oklab, white 60%, var(--actinido)); }
+
+/* Borde lateral con color de categoría */
+.elemento::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  border-radius: var(--radius) 0 0 var(--radius);
+  opacity: .9;
+}
+.elemento.no-metal::after        { background: var(--no-metal); }
+.elemento.halogeno::after        { background: var(--halogeno); }
+.elemento.gas-noble::after       { background: var(--gas-noble); }
+.elemento.alcalino::after        { background: var(--alcalino); }
+.elemento.alcalinoterreo::after  { background: var(--alcalinoterreo); }
+.elemento.metal-transicion::after{ background: var(--metal-transicion); }
+.elemento.metaloide::after       { background: var(--metaloide); }
+.elemento.otros-metales::after   { background: var(--otros-metales); }
+.elemento.lantanido::after       { background: var(--lantanido); }
+.elemento.actinido::after        { background: var(--actinido); }
+
+/* Accesibilidad: tooltip mínimo en hover/focus con la categoría */
+.elemento:focus,
+.elemento:focus-visible {
+  outline: 2px solid #334155;
+  outline-offset: 2px;
+}
+.elemento:hover::before {
+  content: attr(data-grupo);
+  position: absolute;
+  bottom: 100%;
+  left: 8px;
+  transform: translateY(-6px);
+  white-space: nowrap;
+  background: #0f172a;
+  color: white;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: .95;
+}
+
+/* Leyenda */
+.leyenda { margin-top: 18px; }
+.leyenda h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+.leyenda ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.chip{
+  display: inline-block;
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  border: 1px solid rgba(0,0,0,.08);
+}
+.chip.no-metal        { background: var(--no-metal); }
+.chip.halogeno        { background: var(--halogeno); }
+.chip.gas-noble       { background: var(--gas-noble); }
+.chip.alcalino        { background: var(--alcalino); }
+.chip.alcalinoterreo  { background: var(--alcalinoterreo); }
+.chip.metal-transicion{ background: var(--metal-transicion); }
+.chip.metaloide       { background: var(--metaloide); }
+.chip.otros-metales   { background: var(--otros-metales); }
+.chip.lantanido       { background: var(--lantanido); }
+.chip.actinido        { background: var(--actinido); }
+
+/* Responsivo: compactar textos en pantallas pequeñas */
+@media (max-width: 720px){
+  .elemento .nombre { display: none; } /* deja número y símbolo */
+  .tabla-periodica { border-spacing: 6px; }
+}
