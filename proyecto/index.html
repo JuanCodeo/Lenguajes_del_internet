@@ -1,0 +1,112 @@
+<!-- File: noticias.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noticias - Ejemplo</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fuente opcional de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Titulares Hoy</h1>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#">Inicio</a>
+        <a href="">Noticias</a>
+        <a href="">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Bienvenido a Tu Resumen de Noticias</h2>
+      <p>Resumen diario con los titulares más relevantes, fechas y fuentes. Desplázate para ver los artículos destacados y la tabla con más detalles.</p>
+    </section>
+
+    <section id="noticias" class="news-section">
+      <h3>Noticias destacadas</h3>
+
+      <div class="news-grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="/proyecto/img/eric-muhr-KrMhhUqdS-w-unsplash.jpg" alt="Imagen noticia 1" class="card-img">
+          <div class="card-body">
+            <h4 class="card-title">Nueva iniciativa ambiental impulsada en la ciudad</h4>
+            <p class="card-desc">Un proyecto local busca aumentar las zonas verdes y promover el transporte sostenible entre los ciudadanos.</p>
+            <p class="card-meta">Fuente: Diario Local — 2025-09-05</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="/proyecto/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg" alt="Imagen noticia 2" class="card-img">
+          <div class="card-body">
+            <h4 class="card-title">Innovaciones tecnológicas que marcan tendencia</h4>
+            <p class="card-desc">Resumimos los avances tecnológicos que las empresas presentaron esta semana en la feria regional.</p>
+            <p class="card-meta">Fuente: TechHoy — 2025-09-04</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <img src="/proyecto/img/michael-afonso-z8Tul255kGg-unsplash.jpg" alt="Imagen noticia 3" class="card-img">
+          <div class="card-body">
+            <h4 class="card-title">Cultura local: festival de música y artes</h4>
+            <p class="card-desc">El festival anual reunió artistas emergentes y locales en un fin de semana lleno de actividades.</p>
+            <p class="card-meta">Fuente: Agenda Cultural — 2025-09-03</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h3>Tabla de noticias</h3>
+      <div class="table-wrapper">
+        <table class="news-table" aria-describedby="tabla-descripcion">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Fecha</th>
+              <th>Fuente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nueva iniciativa ambiental impulsada en la ciudad</td>
+              <td>2025-09-05</td>
+              <td>Diario Local</td>
+            </tr>
+            <tr>
+              <td>Innovaciones tecnológicas que marcan tendencia</td>
+              <td>2025-09-04</td>
+              <td>TechHoy</td>
+            </tr>
+            <tr>
+              <td>Cultura local: festival de música y artes</td>
+              <td>2025-09-03</td>
+              <td>Agenda Cultural</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-inner">
+      <p>© 2025 Titulares Hoy. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="#">Twitter</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
