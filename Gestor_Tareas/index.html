@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="/Gestor_Tareas/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Gestor de Tareas</h1>
+    
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Escribe una nueva tarea..." data-testid="task-input">
+      <select id="categorySelect" data-testid="category-select">
+        <option value="trabajo">💼 Trabajo</option>
+        <option value="personal">👤 Personal</option>
+        <option value="urgente">🔥 Urgente</option>
+        <option value="compras">🛒 Compras</option>
+      </select>
+      <button id="addBtn" data-testid="add-button">Añadir</button>
+    </div>
+
+    <div class="filter-section">
+      <button class="filter-btn active" data-filter="all" data-testid="filter-all">Todas</button>
+      <button class="filter-btn" data-filter="active" data-testid="filter-active">Activas</button>
+      <button class="filter-btn" data-filter="completed" data-testid="filter-completed">Completadas</button>
+      <button class="filter-btn" data-filter="trabajo" data-testid="filter-trabajo">Trabajo</button>
+      <button class="filter-btn" data-filter="personal" data-testid="filter-personal">Personal</button>
+      <button class="filter-btn" data-filter="urgente" data-testid="filter-urgente">Urgente</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number" id="totalTasks" data-testid="total-tasks">0</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="activeTasks" data-testid="active-tasks">0</div>
+        <div class="stat-label">Activas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="completedTasks" data-testid="completed-tasks">0</div>
+        <div class="stat-label">Completadas</div>
+      </div>
+    </div>
+
+    <ul id="taskList" data-testid="task-list"></ul>
+  </div>
+
+  <script src="/Gestor_Tareas/script.js"></script>
+</body>
+</html>
