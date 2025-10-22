@@ -1,0 +1,116 @@
+/*
+ * Archivo: style.css (o el nombre que prefieras)
+ * Estilos básicos y limpios para el HTML proporcionado.
+ */
+
+/* --- Reset Básico y Estilos Generales --- */
+:root {
+    /* Variables para facilitar el cambio de colores y tipografía */
+    --color-principal: #007bff; /* Azul vibrante */
+    --color-fondo: #f8f9fa;   /* Gris claro */
+    --color-texto: #333;      /* Gris oscuro para el texto principal */
+    --tipografia-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Aplicar un box-sizing más intuitivo y limpiar márgenes/paddings */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--tipografia-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6; /* Mejorar legibilidad */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido en el eje horizontal */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la vista */
+}
+
+/* --- Títulos --- */
+h1 {
+    color: var(--color-principal);
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* --- Botón --- */
+button {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    min-width: 150px; /* Para que sea más visible */
+    /* El botón de tu HTML está vacío. Le damos un texto predeterminado para que se vea */
+    content: "Obtener Usuarios";
+}
+
+button:hover {
+    background-color: #0056b3; /* Un azul un poco más oscuro al pasar el ratón */
+}
+
+button:active {
+    transform: translateY(1px); /* Efecto de "presionado" */
+}
+
+/* --- Contenedor de Resultado --- */
+#Resultado {
+    margin-top: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Limita el ancho máximo para una mejor lectura */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sutil sombra */
+}
+
+/* Estilos para los elementos que podrías inyectar (ej. listas, párrafos) */
+#Resultado p,
+#Resultado ul,
+#Resultado div {
+    margin-bottom: 10px;
+}
+
+#Resultado ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#Resultado li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+#Resultado li:last-child {
+    border-bottom: none;
+}
+
+/* --- Media Queries para Responsividad (Opcional pero recomendado) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    button {
+        width: 100%;
+        min-width: auto;
+    }
+}
