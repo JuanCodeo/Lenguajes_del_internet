@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Con Gemini AI </title>
+    <link rel="stylesheet" href="/Gemini/Chat/style_chat.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>Chat Con AI</h1>
+        <div id="chat-history">
+            <div id="loader">Generando....</div>
+            <div id="error-message"></div>
+            <div id="input-area">
+                <textarea id="prompt-input" placeholder="Escribe Aqui..."></textarea>
+                <button id="send-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="chat.js"></script>
+</body>
+</html>
